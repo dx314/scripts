@@ -33,12 +33,12 @@ function start_postgresql() {
   fi
 
   # Start the PostgreSQL container with the given password, port, and database name
-  docker run -d --name "$container_name" -e POSTGRES_PASSWORD="$db_password" -e POSTGRES_USERNAME="db_user" -e POSTGRES_DB="$db_name" -p "$port":5432 postgres:latest
+  docker run -d --name "$container_name" -e POSTGRES_PASSWORD="$db_password" -e POSTGRES_USER="$db_user" -e POSTGRES_DB="$db_name" -p "$port":5432 postgres:latest
   local uri="postgresql://$db_user:$db_password@localhost:$port/$db_name"
   # Save the connection details to an environment file
   cat >.db.env <<EOF
 DB_NAME=$db_name
-DB_USER=$db_name
+DB_USER=$db_user
 DB_PASSWORD=$db_password
 DB_HOST=localhost
 DB_PORT=$port
