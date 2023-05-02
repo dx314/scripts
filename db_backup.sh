@@ -2,12 +2,11 @@
 
 # Variables
 DOMAIN_NAME="app.judgefest.com"
-DB_NAME="judgefest"
+DB_NAME="$1"
 BACKUP_PATH="$HOME/backups"
 DB_BACKUP_PATH="$BACKUP_PATH/db"
 CONFIG_BACKUP_PATH="$BACKUP_PATH/config"
-REMOTE_APP_PATH="/usr/share/judgefest"
-REMOTE_APP_PATH_GO="$REMOTE_APP_PATH/go"
+REMOTE_APP_PATH="$2"
 
 # SSH connection
 ssh -T $DOMAIN_NAME "./backup.sh"
