@@ -108,3 +108,51 @@ To use the script, simply run it on the local machine:
 
 ```bash
 ./backup.sh
+```
+
+## Office 365 PowerShell Scripts
+
+This repository contains two PowerShell scripts for managing access to shared mailboxes in Office 365.
+
+### Script 1: Add-MailboxMembers.ps1
+
+#### Description
+
+This script allows you to add multiple users to multiple shared mailboxes in Office 365. The script will display a list of all shared mailboxes and all users in your organization. You can then select the shared mailboxes and users you want to add permissions for. The script will then add full access permissions for the selected users to the selected shared mailboxes.
+
+#### Usage
+
+1. Open a PowerShell window.
+2. Navigate to the folder where the `Add-MailboxMembers.ps1` script is located.
+3. Run the script by typing `.\Add-MailboxMembers.ps1 -UserPrincipalName "admin@example.com"` and replacing `admin@example.com` with your Office 365 global administrator account.
+
+#### Parameters
+
+- `-UserPrincipalName`: This is a mandatory parameter. Specify the User Principal Name (UPN) of your Office 365 global administrator account.
+
+### Script 2: Get-SharedMailboxesForMember.ps1
+
+#### Description
+
+This script allows you to list the shared mailboxes a user is a member of in Office 365. The script will display a list of all users in your organization. You can then select the users you want to check the shared mailbox memberships for. The script will then list the shared mailboxes each selected user is a member of.
+
+#### Usage
+
+1. Open a PowerShell window.
+2. Navigate to the folder where the `Get-SharedMailboxesForMember.ps1` script is located.
+3. Run the script by typing `.\Get-SharedMailboxesForMember.ps1 -UserPrincipalName "admin@example.com"` and replacing `admin@example.com` with your Office 365 global administrator account.
+
+#### Parameters
+
+- `-UserPrincipalName`: This is a mandatory parameter. Specify the User Principal Name (UPN) of your Office 365 global administrator account.
+
+### Prerequisites
+
+- You need to have the `ExchangeOnlineManagement` PowerShell module installed. You can install it by running `Install-Module -Name ExchangeOnlineManagement` in a PowerShell window.
+- You need to have an Office 365 global administrator account.
+
+### Notes
+
+- The `Add-MailboxMembers.ps1` script will add full access permissions for the selected users to the selected shared mailboxes. If you want to add different types of permissions, you will need to modify the script.
+- The `Get-SharedMailboxesForMember.ps1` script will list the shared mailboxes the selected users are a member of. It will only list shared mailboxes where the user has been explicitly added. It will not list shared mailboxes where the user has access through a group or through inherited permissions.
+
